@@ -1,0 +1,87 @@
+      public static void sort(int, int, int[][]);
+    Code:
+// first for loop start
+       0: iconst_0
+       1: istore        4   // initilize row: int row = 0
+// first for loop condition start
+       3: iload         4
+       5: iload_0
+       6: if_icmpge     96    // row < m
+// first for loop condition end
+// first for loop body start
+// second for loop start
+       9: iconst_2
+      10: istore        5   // initilize column: int column = 0
+// second for loop condition start
+      12: iload         5
+      14: iload_1
+      15: if_icmpge     90  // column < n
+// second for loop condition end
+// second for loop body start
+      18: aload_2
+      19: iload         4
+      21: aaload
+      22: iconst_0
+      23: aload_2
+      24: iload         4
+      26: aaload
+      27: iload         5
+      29: iaload
+      30: iastore   // array[row][0] = array[row][column]
+      31: iload         5
+      33: istore_3    // j = column
+// while loop start
+// while loop condition start
+      34: aload_2
+      35: iload         4
+      37: aaload
+      38: iconst_0
+      39: iaload
+      40: aload_2
+      41: iload         4
+      43: aaload
+      44: iload_3
+      45: iconst_1
+      46: isub
+      47: iaload
+      48: if_icmple     72  // array[row][0] > array[row][j - 1]
+// while loop condition end
+// while loop body start
+      51: aload_2
+      52: iload         4
+      54: aaload
+      55: iload_3
+      56: aload_2
+      57: iload         4
+      59: aaload
+      60: iload_3
+      61: iconst_1
+      62: isub
+      63: iaload
+      64: iastore   // array[row][j] = array[row][j - 1]
+      65: iload_3
+      66: iconst_1
+      67: isub
+      68: istore_3    // j = j-1
+// while loop body end
+      69: goto          34    // go to while loop condition check
+// while loop end
+      72: aload_2
+      73: iload         4
+      75: aaload
+      76: iload_3
+      77: aload_2
+      78: iload         4
+      80: aaload
+      81: iconst_0
+      82: iaload
+      83: iastore   // array[row][j] = array[row][0]
+// second for loop body end
+      84: iinc          5, 1  // increment column++
+      87: goto          12    // go to second for loop condition check
+// second for loop end
+// first for loop body end  
+      90: iinc          4, 1  // increment row++
+      93: goto          3 // go to first for loop condition check
+// first for loop end
+      96: return  
